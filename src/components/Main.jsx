@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { DiDotnet } from "react-icons/di";
 import { SiBytedance } from "react-icons/si";
-import { ThemeContext } from "../App";
+import { ThemeContext, strings } from "../App";
+
 const Main = () => {
   const { theme } = useContext(ThemeContext);
+  const { language } = useContext(ThemeContext);
 
   return (
     <div className="m-5 ">
@@ -19,7 +21,7 @@ const Main = () => {
                 theme === "dark" ? "text-white" : "text-black"
               }`}
             >
-              I am
+              {strings[language].saya}
             </span>
             Agus Rahman
           </p>

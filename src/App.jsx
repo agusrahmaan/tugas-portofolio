@@ -5,11 +5,32 @@ import Main from "./components/Main";
 import { useState } from "react";
 import { createContext } from "react";
 
+export const strings = {
+  id: {
+    proyek: "Projek: ",
+    view: "Lihat",
+    tema: "Ubah Tema",
+    support: "Di Dukung oleh: ",
+    saya: "Saya",
+  },
+  en: {
+    proyek: "Proyek: ",
+    view: "View",
+    tema: "Change Mode",
+    support: "Support By: ",
+    saya: "I am",
+  },
+};
+
 export const ThemeContext = createContext({
   theme: null,
   setTheme: () => {},
 });
 
+export const LanguageContext = createContext({
+  language: null,
+  setLanguage: () => {},
+});
 const App = () => {
   const project = [
     {
@@ -40,15 +61,18 @@ const App = () => {
       id: 4,
       image: "/asp.png",
       title: "Blog Aing",
-      description: "Applications that can make blog notes.",
+      description:
+        "An application to convey ideas and thoughts in written form. Both long notes and simple notes.",
       linkRepo: "https://github.com/agusrahmaan/BlogAing.git",
     },
   ];
 
+  const [language, setLanguage] = useState("id");
+
   const [theme, setTheme] = useState("dark");
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme, language, setLanguage }}>
       <Header />
       <div className={`p-7 ${theme === "dark" ? "bg-sky-950" : "bg-gray-400"}`}>
         <div>
@@ -56,9 +80,9 @@ const App = () => {
         </div>
         <div className="border-solid border-1 border-cyan-700 ">
           <p className="flex justify-center text-blue-600 text-xl font-medium pb-5">
-            Project:
+            {strings[language].proyek}
           </p>
-          <div className="flex-col flex gap-3 md:flex-row items-center">
+          <div className="flex-col flex gap-3 md:flex-row items-center md:items-baseline">
             {project.map((project, index) => {
               return <Portofolio key={index} {...project} />;
             })}

@@ -4,10 +4,11 @@ import { AiFillHtml5 } from "react-icons/ai";
 import { BiLogoTailwindCss } from "react-icons/bi";
 import { FaBootstrap } from "react-icons/fa";
 import { useContext } from "react";
-import { ThemeContext } from "../App";
+import { ThemeContext, strings } from "../App";
 
 const Footer = () => {
   const { theme } = useContext(ThemeContext);
+  const { language } = useContext(ThemeContext);
 
   return (
     <div className="border-4 border-transparent rounded-md border-t-cyan-300">
@@ -17,7 +18,7 @@ const Footer = () => {
             theme === "dark" ? "text-white" : "text-black"
           }`}
         >
-          Support by:{" "}
+          {strings[language].support}
         </p>
         <BiLogoReact size={32} className="hover:text-cyan-400" />
         <DiDotnet size={32} className="hover:text-blue-500" />
@@ -30,7 +31,7 @@ const Footer = () => {
           theme === "dark" ? "text-white" : "text-black"
         }`}
       >
-        &copy;2023 Agus Rahman
+        &copy;Copyright 2023 Agus Rahman
       </div>
     </div>
   );

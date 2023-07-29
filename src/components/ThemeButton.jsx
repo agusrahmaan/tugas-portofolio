@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { ThemeContext } from "../App";
+import { ThemeContext, strings } from "../App";
 import { MdLightMode } from "react-icons/md";
 import { MdDarkMode } from "react-icons/md";
 
 export default function ThemeButton() {
   const { theme, setTheme } = useContext(ThemeContext);
+  const { language } = useContext(ThemeContext);
 
   return (
     <button
@@ -13,7 +14,7 @@ export default function ThemeButton() {
       } `}
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
-      Mode
+      {strings[language].tema}
       {theme === "light" ? (
         <MdDarkMode size={28} />
       ) : (

@@ -1,8 +1,9 @@
 import { useContext } from "react";
-import { ThemeContext } from "../App";
+import { ThemeContext, strings } from "../App";
 
 const Portofolio = (props) => {
   const { theme } = useContext(ThemeContext);
+  const { language } = useContext(ThemeContext);
 
   return (
     <div
@@ -20,9 +21,9 @@ const Portofolio = (props) => {
       <a
         target="blank"
         href={props.linkRepo}
-        className="border-solid border-2 border-none w-14 p-1 rounded-md bg-blue-400 cursor-pointer hover:bg-blue-700 "
+        className="border-none w-auto flex justify-center p-1 rounded-md bg-blue-400 cursor-pointer hover:bg-blue-700 "
       >
-        View...
+        {strings[language].view}
       </a>
     </div>
   );

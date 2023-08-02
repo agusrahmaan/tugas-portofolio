@@ -4,6 +4,8 @@ import Footer from "./components/Footer";
 import Main from "./components/Main";
 import { useState } from "react";
 import { createContext } from "react";
+import { MdOutlineKeyboardDoubleArrowUp } from "react-icons/md";
+import { useRef } from "react";
 
 export const strings = {
   id: {
@@ -71,10 +73,23 @@ const App = () => {
 
   const [theme, setTheme] = useState("dark");
 
+  const scrollRef = useRef(null);
+
+  const goTop = (ref) => {
+    scrollTo({
+      top: ref.offsetTop,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <ThemeContext.Provider value={{ theme, setTheme, language, setLanguage }}>
       <Header />
-      <div className={`p-7 ${theme === "dark" ? "bg-sky-950" : "bg-gray-400"}`}>
+      <div
+        ref={scrollRef}
+        className={`p-7  ${theme === "dark" ? "bg-sky-950" : "bg-gray-400"}`}
+      >
         <div>
           <Main />
         </div>
@@ -90,6 +105,13 @@ const App = () => {
         </div>
         <div className="pt-5">
           <Footer />
+          <button className="border bg-gray-500 rounded-full flex">
+            <MdOutlineKeyboardDoubleArrowUp
+              size={24}
+              color="white"
+              onClick={() => goTop(scrollRef.current)}
+            />
+          </button>
         </div>
       </div>
     </ThemeContext.Provider>

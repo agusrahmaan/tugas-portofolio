@@ -21,7 +21,7 @@ const Portofolio = (props) => {
       <a
         target="blank"
         href={props.linkRepo}
-        className="border-none w-auto flex justify-center p-1 rounded-md bg-blue-400 cursor-pointer hover:bg-blue-700 "
+        className="border-none w-auto font-bold flex justify-center p-1 rounded-md bg-blue-400 cursor-pointer hover:bg-blue-700 "
       >
         {strings[language].view}
       </a>

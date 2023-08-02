@@ -12,7 +12,10 @@ export default function ThemeButton() {
       className={`flex flex-row gap-2 font-bold ${
         theme === "dark" ? "text-white" : "text-black"
       } `}
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      onClick={() => {
+        setTheme(theme === "light" ? "dark" : "light");
+        alert("Berhasil Mengubah Tema!!!");
+      }}
     >
       {strings[language].tema}
       {theme === "light" ? (

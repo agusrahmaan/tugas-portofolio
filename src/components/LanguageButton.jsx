@@ -7,16 +7,16 @@ const LanguageButton = () => {
   return (
     <div className="flex flex-row ">
       <button
-        className="border-2 border-white m-3 p-2 text-white rounded-md"
+        className="border-2 border-white m-1 p-1 text-white rounded-full hover:bg-teal-400"
         onClick={() => setLanguage("id")}
       >
-        Indonesia
+        ID
       </button>
       <button
-        className="border-2 border-white m-3 p-2 text-white rounded-md"
+        className="border-2 border-white m-1 p-1 text-white rounded-full"
         onClick={() => setLanguage("en")}
       >
-        English
+        EN
       </button>
     </div>
   );

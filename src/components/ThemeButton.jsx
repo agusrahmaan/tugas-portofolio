@@ -14,7 +14,7 @@ export default function ThemeButton() {
       } `}
       onClick={() => {
         setTheme(theme === "light" ? "dark" : "light");
-        alert("Berhasil Mengubah Tema!!!");
+        console.log("Berhasil Mengubah Tema!!!");
       }}
     >
       {strings[language].tema}
